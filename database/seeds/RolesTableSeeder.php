@@ -12,13 +12,13 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         $admin_user = \App\Role::create([
-            'name'=>'eduAdmin',
-            'display_name' => ' edu admin',
+            'name' => "admin_user",
+            'display_name' => 'admin user',
             'description' => 'can do any thing'
         ]);
 
         $teacher = \App\Role::create([
-            'name' => "Teacher",
+            'name' => "teacher",
             'display_name' => 'Teacher',
             'description' => 'can do some thing'
         ]);
@@ -28,5 +28,6 @@ class RolesTableSeeder extends Seeder
             'display_name' => 'n_user',
             'description' => 'can do just a thing'
         ]);
+
     }
 }

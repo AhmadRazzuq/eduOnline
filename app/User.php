@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
-
+use App\Course;
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -38,4 +38,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $dates = ['deleted_at'];
+
+
+//    public function Course(){
+//        return $this->belongsToMany('App\Course')->withDefault();
+//    }
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course');
+    }
 }

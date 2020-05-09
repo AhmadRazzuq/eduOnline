@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+//use Illuminate\Database\RolesTableSeeder;
+//use UserTableSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,11 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(RolesTableSeeder::class);
-//        $this->call(UsersTableSeeder::class);
-        $this->call([
-            RolesTableSeeder::class,
-            UsersTableSeeder::class,
-        ]);
+        //$this->call(LaratrustSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        $this->call(UserTableSeeder::class);
     }
 }

@@ -26,14 +26,26 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+
+
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+{{--                        <li class="nav-item active">--}}
+{{--                            @if (auth()->user()->hasRole('n_user') != null)--}}
+{{--                                <a class="dropdown-item" href="{{route('courses.index')}}">--}}
+{{--                                    Add new course--}}
+{{--                                </a>--}}
+{{--                            @endif--}}
+{{--                        </li>--}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -41,7 +53,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="navbar-brand" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -49,6 +61,22 @@
                                 </li>
                             @endif
                         @else
+{{--                            <li class="nav-item dropdown">--}}
+{{--                                @if (auth()->user()->hasRole('adminUser') != null)--}}
+{{--                                    <a class="navbar-brand" href="{{ route('users.index')}}">--}}
+{{--                                        view users--}}
+{{--                                    </a>--}}
+{{--                                @endif--}}
+{{--                            </li>--}}
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    @if (auth()->user()->hasRole('n_user') != null)
+                                        <a class="dropdown-item" href="{{route('courses')}}">
+                                            Add new course
+                                        </a>
+                                    @endif
+                                </li>
+                            </ul>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -60,12 +88,33 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+{{--                                    <a class="dropdown-item" href="{{route('users.index')}}">--}}
+{{--                                        view users--}}
+{{--                                    </a>--}}
+{{--                                    @dd(auth()->user()->hasRole('admin_user') == null);--}}
+                                    @if (auth()->user()->hasRole('admin_user') != null)
+                                        <a class="dropdown-item" href="{{route('users')}}">
+                                            view users
+                                        </a>
+                                    @endif
+
+                                    @if (auth()->user()->hasRole('admin_user') != null)
+                                        <a class="dropdown-item" href="{{route('courses')}}">
+                                            view courses
+                                        </a>
+                                    @endif
+                                    @if (auth()->user()->hasRole('teacher') != null)
+                                        <a class="dropdown-item" href="{{route('courses.teacher.newCourse')}}">
+                                            Add new course
+                                        </a>
+                                    @endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>
