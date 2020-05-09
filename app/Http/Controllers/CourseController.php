@@ -51,9 +51,13 @@ class CourseController extends Controller
         ]);
         //dd($request->all());
         $course = Course::create(array(
-            "name"=>$request->name,
-            "teacher"=>$request->teacher
+            'name'=>$request->name,
+            'teacher'=>$request->teacher
         ));
+        /*
+         * TODO
+         * remove tow row
+         */
         $course->name = $request->name;
         $course->teacher = $request->teacher;
         //$course->users()->attach();
