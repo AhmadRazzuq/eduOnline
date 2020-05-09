@@ -12,6 +12,16 @@ class Course extends Model
     protected $fillable = [
         'name', 'teacher'
     ];
+    /*
+     * Show image from backEnd
+     * Created By: phpStorm
+     * Date:10-05-2020
+     * Time:02:09 AM
+     */
+    public function getFeaturedAttribute($image){
+
+        return asset($image);
+    }
 
     public function users()
     {
