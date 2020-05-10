@@ -30,6 +30,7 @@ Route::post('/courses/teacher/storeCourse', 'CourseController@storeCourse')->nam
 Route::get('/courses/teacher/teacherCourse', 'CourseController@teacherCourse')->name('courses.teacher.teacherCourse');
 Route::post('/courses/store','CourseController@store')->name('courses.store');
 Route::get('/courses/users/delete/{course_id}/{user_id}','CourseController@deleteUser')->name('courses.users.delete');
+Route::get('/users/join/{id}','UserController@join')->name('users.join');
 
 Route::get('users/courses','UserController@viewcourses')->name('users.courses');
 //Route::get('/courses/users/delete/{user_id}',function (){
