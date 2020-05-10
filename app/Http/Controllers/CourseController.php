@@ -20,6 +20,17 @@ class CourseController extends Controller
             ->with('users',User::all());
     }
 
+    public function join($id)
+    {
+        $course = Course::find($id);
+        $user = auth()->user();
+
+        $course->users()->attach($user);
+
+        return redirect()->back();
+
+    }
+
 //    public function courses()
 //    {
 //
