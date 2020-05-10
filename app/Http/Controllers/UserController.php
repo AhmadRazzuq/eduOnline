@@ -132,5 +132,14 @@ class UserController extends Controller
         return redirect()->back();
 
     }
+    public function showCourse($id)
+    {
+        $course = Course::find($id);
+
+        //dd($course->image);
+
+        return view('users.viewCourse')->with('course',$course);
+
+    }
 }
 
