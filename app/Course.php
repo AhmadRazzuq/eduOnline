@@ -10,7 +10,7 @@ class Course extends Model
 //        return $this->hasMany('App\User');
 //    }
     protected $fillable = [
-        'name', 'teacher'
+        'name', 'teacher','image','slug'
     ];
     /*
      * Show image from backEnd
