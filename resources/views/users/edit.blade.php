@@ -16,6 +16,7 @@
                                 <label>Name</label>
                                 <input type="text" name="name" class="form-control" value="{{$user->name}}">
                             </div>
+{{--ccc--}}
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">
