@@ -109,8 +109,10 @@ class CourseController extends Controller
             $image = $request->image;
             $image_new_name = time().$image->getClientOriginalName();
             $image -> move('uploads/courses/' , $image_new_name);
+
+           // dd($image_new_name);
             $course->name = $request->name;
-            $course->image = $request->image;
+            $course->image = 'uploads/courses/'.$image_new_name;
             $course->update();
             return redirect()->route('courses');
 
@@ -163,7 +165,7 @@ class CourseController extends Controller
         $image -> move('uploads/courses/' , $image_new_name);
         $course = Course::create(array(
             "name"=>$request->name,
-            "image"    => 'uploads/posts/'.$image_new_name,
+            "image"    => 'uploads/courses/'.$image_new_name,
             "teacher"=>auth()->user()->name
         ));
 

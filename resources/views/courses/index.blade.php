@@ -15,6 +15,7 @@
                                 <th scope="col">the teacher</th>
                                 <th scope="col">the students</th>
                                 <th scope="col">Edit</th>
+                                <th scope="col">image</th>
                                 {{--<th scope="col">Delete</th>--}}
                             </tr>
                             </thead>
@@ -41,6 +42,9 @@
                                         {{--</a>--}}
                                     {{--</td>--}}
 
+                                    <td scope="row">
+                                        <img height="50px" width="50px" src="{{ asset($course->image) }}">
+                                    </td>
                                 </tr>
                             @endforeach
 
