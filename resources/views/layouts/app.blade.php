@@ -26,11 +26,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-
-
-
-
-
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -71,7 +66,7 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     @if (auth()->user()->hasRole('n_user') != null)
-                                        <a class="dropdown-item" href="{{route('courses')}}">
+                                        <a class="dropdown-item" href="{{route('users.courses')}}">
                                             Add new course
                                         </a>
                                     @endif
