@@ -18,6 +18,7 @@ class Course extends Model
      * Date:10-05-2020
      * Time:02:09 AM
      */
+
     public function getFeaturedAttribute($image){
 
         return asset($image);
