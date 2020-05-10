@@ -13,7 +13,9 @@
                             <tr>
                                 <th scope="col">course Name</th>
                                 <th scope="col">the teacher</th>
-                                <th scope="col">the users</th>
+                                <th scope="col">the students</th>
+                                <th scope="col">Edit</th>
+                                {{--<th scope="col">Delete</th>--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -21,35 +23,23 @@
                                 <tr>
                                     <th scope="row">{{$course->name}}</th>
                                     <td scope="row">
-{{--                                        <div class="form-group">--}}
-{{--                                            <div class="col-sm-10">--}}
-
-{{--                                                <select class="form-control" id="exampleFormControlSelect1">--}}
-{{--                                                    @foreach($users as $user)--}}
-{{--                                                        @if($user->hasRole('teacher') != null)--}}
-{{--                                                            <option > {{$user->name}}</option>--}}
-{{--                                                        @endif--}}
-
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-
-{{--                                        </div>--}}
                                         {{$course->teacher}}
                                     </td>
                                     <td scope="row">
                                         <a class="" href="{{route('courses.users',['id' => $course->id])}}">
-                                            Show users
+                                            Show students
                                         </a>
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="mjn"></label>--}}
-{{--                                            <select class="form-control" name="users" >--}}
-{{--                                                @foreach($course->users as $user)--}}
-{{--                                                    <option >{{$user->name}}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
                                     </td>
+                                    <td>
+                                        <a class="" href="{{route('courses.teacher.edit',['id'=>$course->id])}}">
+                                            edit
+                                        </a>
+                                    </td>
+                                    {{--<td>--}}
+                                        {{--<a class="dropdown-item" href="{{route('user.delete',['id'=>$course->id])}}">--}}
+                                            {{--delete--}}
+                                        {{--</a>--}}
+                                    {{--</td>--}}
 
                                 </tr>
                             @endforeach

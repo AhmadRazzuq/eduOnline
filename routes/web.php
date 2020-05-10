@@ -30,6 +30,8 @@ Route::get('/courses', 'CourseController@index')->name('courses');
 Route::get('/courses/create', 'CourseController@create')->name('courses.create');
 Route::get('/courses/teacher/newCourse', 'CourseController@newCourse')->name('courses.teacher.newCourse');
 Route::post('/courses/teacher/storeCourse', 'CourseController@storeCourse')->name('courses.teacher.storeCourse');
+Route::get('/courses/teacher/edit/{id}', 'CourseController@edit')->name('courses.teacher.edit');
+Route::post('/courses/teacher/update/{id}', 'CourseController@update')->name('courses.teacher.update');
 Route::get('/courses/teacher/teacherCourse', 'CourseController@teacherCourse')->name('courses.teacher.teacherCourse');
 Route::post('/courses/store','CourseController@store')->name('courses.store');
 Route::get('/courses/users/delete/{course_id}/{user_id}','CourseController@deleteUser')->name('courses.users.delete');

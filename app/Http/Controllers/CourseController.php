@@ -86,11 +86,13 @@ class CourseController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
         //
+        $course = Course::where('id',$id)->first();
+        return view('courses.teacher.edit')->with('course',$course);
     }
 
     /**
@@ -102,7 +104,21 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::where('id' , $id)->first();
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $image_new_name = time().$image->getClientOriginalName();
+            $image -> move('uploads/courses/' , $image_new_name);
+            $course->name = $request->name;
+            $course->image = $request->image;
+            $course->update();
+            return redirect()->route('courses');
+
+        }else{
+            $course->name = $request->name;
+            $course->update();
+            return redirect()->route('courses');
+        }
     }
 
     /**
@@ -119,9 +135,7 @@ class CourseController extends Controller
     public function viewUsers($id){
         $course = Course::find($id);
         $users = $course->users;
-//        $course->delete($id);
         return view('courses.users')->with('users',$users)->with('course',$course);
-        //return redirect()->route('categories');
     }
 
     public function deleteUser($c_id, $u_id){
@@ -129,7 +143,6 @@ class CourseController extends Controller
         $users = $course->users;
         $user = $users->where('id',$u_id);
         $user->delete();
-        //return redirect()->back();
         return redirect()->route('courses.users');
     }
 
@@ -155,33 +168,11 @@ class CourseController extends Controller
         ));
 
         return redirect()->back();
-       // return view('courses.teacher.teacherCourse')->with('course',$course);
-
-//        $course->name = $request->name;
-//        $course->teacher = $request->teacher;
-        //$course->users()->attach();
-        //$course->users()->attach($request->users);
-        //$course->users = User::find(0);
-        //$course->save();
-        //return redirect()->back();
-
-        //return view('courses.index')->with('courses',Course::all());
-
-
     }
     public function teacherCourse()
     {
         $courses = Course::all();
-        //$id = auth()->user()->id;
         $teacher = auth()->user()->name;
-//        $id = auth()->user()->id;
-//        $user = User::find($id);
-//
-//        $name = $user->name;
-//        $course = Course::where('teacher','=',$name)->first();
-        //dd($course->name);
-
-        //dd($course);
         return view('courses.teacher.teacherCourse')->with('courses',$courses)->with('teacher',$teacher);
     }
 
