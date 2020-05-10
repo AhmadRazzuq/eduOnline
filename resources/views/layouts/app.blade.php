@@ -79,6 +79,12 @@
                                         view courses as Admin
                                     </a>
                             </li>
+                            <li class="nav-item active">
+
+                                    <a class="dropdown-item" href="{{route('admin.index')}}">
+                                        Dashboard
+                                    </a>
+                            </li>
                         </ul>
                     @endif
                         @if ((auth()->user()->hasRole('teacher') != null) OR(auth()->user()->hasRole('admin_user') != null))
