@@ -17,6 +17,10 @@
                                 <input type="text" class="form-control" id="exampleInputEmail1"
                                        aria-describedby="emailHelp" placeholder="Enter the course name" name="name">
                             </div>
+                            <div class="form-group">
+                                <label for="image">Course name</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
