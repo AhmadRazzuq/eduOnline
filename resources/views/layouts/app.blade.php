@@ -68,13 +68,11 @@
                         @if (auth()->user()->hasRole('admin_user') != null)
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-
                                     <a class="dropdown-item" href="{{route('users')}}">
                                         view users
                                     </a>
                             </li>
                             <li class="nav-item active">
-
                                     <a class="dropdown-item" href="{{route('courses')}}">
                                         view courses as Admin
                                     </a>
