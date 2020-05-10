@@ -48,7 +48,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       // return view('courses.store');
+        // return view('courses.store');
     }
 
     /**
@@ -120,6 +120,17 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->back();
+    }
+
+    public function join($id)
+    {
+        $course = Course::find($id);
+        $user = auth()->user();
+
+        $course->users()->attach($user);
+
+        return redirect()->back();
+
     }
 }
 
