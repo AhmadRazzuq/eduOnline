@@ -16,7 +16,6 @@ class AddPictureToCourses extends Migration
         Schema::table('courses', function (Blueprint $table) {
             //
             $table->string('image')->nullable();
-
             $table->string('slug')->nullable();
         });
     }
