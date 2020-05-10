@@ -141,15 +141,21 @@ class CourseController extends Controller
     public function storeCourse(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|unique:courses',
+            'image' => 'required|image',
         ]);
-        //dd($request->all());
+
+        $image = $request->image;
+        $image_new_name = time().$image->getClientOriginalName();
+        $image -> move('uploads/courses/' , $image_new_name);
         $course = Course::create(array(
             "name"=>$request->name,
+            "image"    => 'uploads/posts/'.$image_new_name,
             "teacher"=>auth()->user()->name
         ));
 
-        return view('courses.teacher.teacherCourse')->with('course',$course);
+        return redirect()->back();
+       // return view('courses.teacher.teacherCourse')->with('course',$course);
 
 //        $course->name = $request->name;
 //        $course->teacher = $request->teacher;

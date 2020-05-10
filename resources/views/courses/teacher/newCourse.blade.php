@@ -12,6 +12,18 @@
 
                         <form action="{{route('courses.teacher.storeCourse')}}" enctype="multipart/form-data" method="POST">
                             {{csrf_field()}}
+
+                            @if(count($errors) > 0)
+
+                                <ul class="navbar-nav mr-auto">
+                                    @foreach($errors->all() as $error)
+                                        <li class="nav-item dropdown">
+
+                                            <p style="color: red">{{$error}}</p>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Course name</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1"
