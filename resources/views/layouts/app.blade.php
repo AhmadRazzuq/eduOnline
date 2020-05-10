@@ -50,11 +50,11 @@
                     <li class="nav-item">
                         <a class="navbar-brand" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
                     @else
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
@@ -76,7 +76,7 @@
                             <li class="nav-item active">
 
                                     <a class="dropdown-item" href="{{route('courses')}}">
-                                        view courses
+                                        view courses as Admin
                                     </a>
                             </li>
                         </ul>
