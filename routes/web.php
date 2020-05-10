@@ -17,7 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin_user']], function() {
+/*
+ * Route::middleware(['first', 'second'])->group(function () {
+    Route::get('/', function () {
+        // Uses first & second Middleware
+    });
+
+    Route::get('user/profile', function () {
+        // Uses first & second Middleware
+    });
+});
+ */
+Route::group([ 'middleware'=>['role:admin_user']], function () {
     Route::get('/admin/index', 'AdminController@index')->name('admin.index');
 
 });
