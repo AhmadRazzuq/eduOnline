@@ -129,7 +129,8 @@ class UserController extends Controller
 
         $course->users()->attach($user);
 
-        return redirect()->back();
+
+        return view('courses');
 
     }
     public function showCourse($id)

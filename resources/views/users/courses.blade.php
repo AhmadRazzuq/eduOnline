@@ -18,11 +18,12 @@
                                         @foreach($course->users as $user)
                                             {{--                                            {{dd($user->name)}}--}}
                                             @if ($user->name == auth()->user()->name)
-                                                @continue
-                                            @else
+
                                                 <a id="" class="nav-link" href="{{route('users.join',['id' => $course->id])}}" role="button" >
                                                     join <span class="caret"></span>
                                                 </a>
+                                                @continue
+                                            @else
                                                 @break
                                             @endif
                                         @endforeach
