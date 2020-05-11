@@ -20,7 +20,6 @@ class Course extends Model
      */
 
     public function getFeaturedAttribute($image){
-
         return asset($image);
     }
 

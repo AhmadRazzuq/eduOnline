@@ -11,8 +11,7 @@
                     <div class="card-body">
                         <ul class="list-group">
 {{--                            {{dd($course->image)}}--}}
-                            <img src="uploads/courses/{{$course->image}}" class="img-rounded" alt="Responsive image" >
-                            <img asset="{{$course->image}}" class="img-fluid" alt="Responsive image">
+                            <img class="img-fluid" alt="Responsive image" src="{{ asset($course->image) }}">
                             <li class="list-group-item">course name: {{$course->name}}</li>
                             <li class="list-group-item">course name: {{$course->teacher}}</li>
                         </ul>

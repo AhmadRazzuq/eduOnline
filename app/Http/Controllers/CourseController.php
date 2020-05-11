@@ -171,6 +171,7 @@ class CourseController extends Controller
 
         return redirect()->back();
     }
+
     public function teacherCourse()
     {
         $courses = Course::all();

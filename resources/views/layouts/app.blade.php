@@ -86,13 +86,18 @@
                         </ul>
                     @endif
                         @if ((auth()->user()->hasRole('teacher') != null) OR(auth()->user()->hasRole('admin_user') != null))
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
                                     <a class="dropdown-item" href="{{route('courses.teacher.newCourse')}}">
                                         Add new course
                                     </a>
-                            </li>
-                        </ul>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="dropdown-item" href="{{route('courses.teacher.teacherCourse')}}">
+                                        View my courses
+                                    </a>
+                                </li>
+                            </ul>
                         @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

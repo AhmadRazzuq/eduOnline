@@ -85,12 +85,12 @@ class UserController extends Controller
         return view('users.edit')->with('myRoles',Role::all())->with('user',$user);
     }
 
-    public function viewcourses()
+    public function viewCourses()
     {
         $courses = Course::all();
 //        $id = auth()->user()->id;
 //        $teacher = auth()->user()->name;
-//        //dd($teacher);
+          //dd($courses);
         return view('users.courses')->with('courses',$courses);
     }
 

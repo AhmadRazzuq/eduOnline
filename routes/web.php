@@ -37,7 +37,7 @@ Route::post('/courses/store','CourseController@store')->name('courses.store');
 Route::get('/courses/users/delete/{course_id}/{user_id}','CourseController@deleteUser')->name('courses.users.delete');
 Route::get('/users/join/{id}','UserController@join')->name('users.join');
 Route::get('/course/show/{id}','UserController@showCourse')->name('course.showCourse');
-Route::get('users/courses','UserController@viewcourses')->name('users.courses');
+Route::get('users/courses','UserController@viewCourses')->name('users.courses');
 //Route::get('/courses/users/delete/{user_id}',function (){
 //    $user = App\Course::find(course_id)->users(user_id);
 //    $user->delete();
