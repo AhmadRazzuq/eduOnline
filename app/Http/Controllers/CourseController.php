@@ -109,8 +109,6 @@ class CourseController extends Controller
             $image = $request->image;
             $image_new_name = time().$image->getClientOriginalName();
             $image -> move('uploads/courses/' , $image_new_name);
-
-           // dd($image_new_name);
             $course->name = $request->name;
             $course->image = 'uploads/courses/'.$image_new_name;
             $course->update();
