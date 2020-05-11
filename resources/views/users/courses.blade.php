@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
 
-                    <div class="card-header">create posts</div>
+                    <div class="card-header">All Courses</div>
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach ($courses as $course)
